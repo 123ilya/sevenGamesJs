@@ -37,28 +37,21 @@ function generateComputerChoice() {
   computerChoiceDisplay.innerHTML = computerChoice;
 }
 function getResult() {
-  if (computerChoice === userChoice) {
-    result = "it is draw!";
+  if (userChoice === "rock" && computerChoice === "paper") {
+    result = "You lost!";
+  } else if (userChoice === "rock" && computerChoice === "scisors") {
+    result = "You win!";
+  } else if (userChoice === "paper" && computerChoice === "scisors") {
+    result = "You lost!";
+  } else if (userChoice === "paper" && computerChoice === "rock") {
+    result = "You win!";
+  } else if (userChoice === "scisors" && computerChoice === "rock") {
+    result = "You lost!";
+  } else if (userChoice === "scisors" && computerChoice === "paper") {
+    result = "You win!";
+  } else {
+    result = "Stand off!";
   }
-  if (computerChoice === "rock" && userChoice === "paper") {
-    result = "you win!";
-  }
-  if (computerChoice === "rock" && userChoice === "scisors") {
-    result = "you lost!";
-  }
-  if (computerChoice === "paper" && userChoice === "scisors") {
-    result = "you win!";
-  }
-  if (computerChoice === "paper" && userChoice === "rock") {
-    result = "you lost!";
-  }
-  if (computerChoice === "scisors" && userChoice === "rock") {
-    result = "you win!";
-  }
-  if (computerChoice === "scisors" && userChoice === "paper") {
-    result = "you lost!";
-  }
-  resultDisplay.innerHTML = result;
-  console.log(result);
+  resultDisplay.innerHTML = result
 }
 //проблема. когда пользователь выбирает scisors, то результат не отображается
