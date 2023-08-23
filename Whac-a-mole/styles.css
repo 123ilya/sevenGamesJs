@@ -1,15 +1,17 @@
 .grid {
-  width: 606px;
-  height: 606px;
+  width: 306px;
+  height: 306px;
   display: flex;
   flex-wrap: wrap;
 }
 .square {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   border: solid black 1px;
 }
 
 .mole {
   background-image: url(./img/images.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
