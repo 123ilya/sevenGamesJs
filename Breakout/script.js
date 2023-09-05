@@ -1,10 +1,30 @@
 // Получаем наш html элемент и записываем его в переменную grid
 const grid = document.querySelector(".grid");
-// Создаем html элемент и записываем его в переменную block
-const block = document.createElement("div");
-// Добавляем ранее создонному элементу соответствующий класс
-block.classList.add("block");
-block.style.left = "100px";
-block.style.bottom = "50px";
-//Прихуяриваем элемент block в элемент geid
-grid.appendChild(block);
+const blockWidth = 100;
+const blockHeight = 20;
+
+//Создаём класс Block
+class Block {
+  constructor(xAxis, yAxis) {
+    this.bottomLeft = [xAxis, yAxis];
+    this.bottomRight = [xAxis + blockWidth, yAxis];
+    this.topLeft = [xAxis, yAxis + blockHeight];
+    this.topRight = [xAxis + blockWidth, yAxis + blockHeight];
+  }
+}
+//creates an array with objects from Block class
+const blocks = [new Block(10, 270)];
+
+//function create alements according with contents of blocks array
+//and adding this elements to docement.
+function addBlocks() {
+  for (let i = 0; i < blocks.length; i++) {
+    const block = document.createElement("div");
+    block.classList.add("block");
+    block.style.left = blocks[i].bottomLeft[0] + "px";
+    block.style.bottom = blocks[i].bottomLeft[1] + "px";
+    grid.appendChild(block);
+  }
+}
+
+addBlocks();
